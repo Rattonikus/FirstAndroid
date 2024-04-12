@@ -9,7 +9,13 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Build
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -41,27 +47,14 @@ class MainActivity : ComponentActivity()
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier)
 {
-    Column(horizontalAlignment = Alignment.CenterHorizontally,
-           verticalArrangement = Arrangement.Center,
-           modifier = Modifier.background(Color.Blue)
-    ){
-        Text(text = "Hello $name!",
-             color = Color.Red,
-             modifier = modifier
-                 .background(Color.Cyan)
-                 .padding(16.dp)
-
-        )
-        Text(text = "Hello $name!",
-             color = Color.Red,
-             modifier = modifier
-                 .background(Color.Cyan)
-                 .padding(16.dp)
-
-        )
-
+    LazyColumn(horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier.fillMaxSize()) {
+        items(10)
+        {
+            i ->
+            Icon(imageVector = Icons.Default.Build, contentDescription = null, modifier = Modifier.size(100.dp))
+        }
     }
-
 }
 
 @Preview(showBackground = true)
