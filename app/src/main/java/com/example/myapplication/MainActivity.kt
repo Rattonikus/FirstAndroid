@@ -30,14 +30,22 @@ import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 
 class MainActivity : ComponentActivity()
 {
+    var jonesin = "Hi"
+
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
-        setContent {
-            MyApplicationTheme {
+        setContent()
+        {
+            MyApplicationTheme()
+            {
                 // A surface container using the 'background' color from the theme
-                Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    Greeting("Android")
+                Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background)
+                {
+                    Column {
+                      Text(text = jonesin)
+                    }
+                    //Greeting("Android")
                 }
             }
         }
