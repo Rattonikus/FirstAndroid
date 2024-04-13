@@ -91,31 +91,49 @@ fun colorClicker(modifier: Modifier = Modifier)
     var color by remember {
         mutableStateOf(Color.Cyan)
     }
+    
+    var number by remember {
+        mutableStateOf(0)
+    }
 
     Box(modifier = modifier
         .background(color)
         .fillMaxSize())
     {
-        Row(modifier = modifier
+        Column(modifier = modifier
             .fillMaxSize(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.Center)
+               verticalArrangement = Arrangement.Center,
+               horizontalAlignment = Alignment.CenterHorizontally)
         {
-            Icon(imageVector = Icons.Default.CheckCircle, contentDescription = null)
-            Text(text = "Click me!",
-                 color = Color.White,
-                 modifier = modifier
-                     .clickable {
-                         color = Color(
-                                 Random.nextFloat(),
-                                 Random.nextFloat(),
-                                 Random.nextFloat()
-                         )
-                     })
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Center)
+            {
+                Icon(imageVector = Icons.Default.CheckCircle, contentDescription = null)
+                Text(text = "Click me!",
+                     color = Color.White,
+                     modifier = modifier
+                         .clickable {
+                             color = Color(
+                                     Random.nextFloat(),
+                                     Random.nextFloat(),
+                                     Random.nextFloat()
+                             )
+
+                             number++
+                         })
+            }
+            
+
+                Text(text = number.toString(), color = Color.Red)
+
         }
+
 
     }
 }
+
+
 
 @Preview(showBackground = true)
 @Composable
